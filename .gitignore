@@ -207,7 +207,7 @@ marimo/_lsp/
 __marimo__/
 
 # SAM3 specific
-sam3_models/
+sam3/
 *.jpg
 *.png
 *.mp4
