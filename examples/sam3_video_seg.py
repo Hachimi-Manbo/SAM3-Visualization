@@ -4,8 +4,10 @@ import numpy as np
 
 # 1. 初始化视频预测器
 video_predictor = build_sam3_video_predictor(checkpoint_path="../models/sam3/sam3.pt")
-video_path = "../resources/1.mp4"  # MP4文件或JPEG帧文件夹
-text = "vehicle"  # 文本提示
+# video_predictor.model.score_threshold_detection=0.3
+
+video_path = "../resources/ros_output.mp4"  # MP4文件或JPEG帧文件夹
+text = "pavement"  # 文本提示
 
 # 2. 启动会话
 response = video_predictor.handle_request(
@@ -14,6 +16,7 @@ response = video_predictor.handle_request(
         resource_path=video_path,
     )
 )
+
 session_id = response["session_id"]
 
 # 3. 添加文本提示（指定帧索引）
